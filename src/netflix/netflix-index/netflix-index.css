@@ -8,3 +8,10 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
 }
+
+main {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
