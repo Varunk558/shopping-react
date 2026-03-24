@@ -8,6 +8,7 @@ export function ElementStateEventDemoComponent() {
     const [userError, setUserError] = useState("");
     const [city, setCity] = useState("");
     const [cityError, setCityError] = useState("");
+    const [msg, setMsg] = useState("");
 
     function handleUserName(event) {
         setUserName(event.target.value);
@@ -55,6 +56,18 @@ export function ElementStateEventDemoComponent() {
         setUserError("Name is Mandatory");
     }
 
+    function HandleCut(event) {
+        setMsg("Removed and pasted to clipboard");
+    }
+
+    function HandleCopy(event) {
+        setMsg("Copied to clipboard");
+    }   
+
+    function HandlePaste(event) {
+        setMsg("Inserted from clipboard");
+    }
+
     return (
 
         <div className="container-fluid">
@@ -76,6 +89,9 @@ export function ElementStateEventDemoComponent() {
                     </select>
                 </dd>
                 <dd className="text-danger">{cityError}</dd>
+                <dt>Mobile</dt>
+                <dd><input type="text" onCut={HandleCut} onPaste={HandlePaste} onCopy={HandleCopy} /></dd>
+                <dd className="text-danger">{msg}</dd>
             </dl>
             <button onClick={SubmitClick} className="btn btn-primary">Submit</button>
         </div>
