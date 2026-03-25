@@ -7,11 +7,23 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {LoginComponent} from './components/login/login.component';
 import {NetflixIndex} from './netflix/netflix-index/netflix-index';
+import { DataBindingComponent } from './components/data-binding/data-binding.component';
+import { StateDataBindingComponent } from './components/data-binding/state-data-binding.component';
+import { NasaComponent } from './components/nasa/nasa.component';
+import { ShoppingComponent } from './components/shopping/shopping.component';
+import { StyleDemoComponent } from './components/style-demo/styledemo.component';
+import { EventDemoComponent } from './components/event-demo/event-demo.component';
+import { MouseEventDemoComponent } from './components/event-demo/mouse-event-demo.component';
+import { KeyboardEventDemoComponent } from './components/event-demo/keyboard-event-demo.component';
+import { ElementStateEventDemoComponent } from './components/event-demo/element-state-event-demo.component';
+import { FormEventDemoComponent } from './components/event-demo/form-event-demo.component';
+import { TimerEventsDemoComponent } from './components/event-demo/timer-events-demo.component';
+import { TimerMemoryEventComponent } from './components/event-demo/timer-memory-event.component';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <NetflixIndex />
+    <TimerMemoryEventComponent />
   </React.StrictMode>
 );
 
