@@ -9,6 +9,7 @@ export function ElementStateEventDemoComponent() {
     const [city, setCity] = useState("");
     const [cityError, setCityError] = useState("");
     const [msg, setMsg] = useState("");
+    const [mobile, setMobile] = useState("");
 
     function handleUserName(event) {
         setUserName(event.target.value);
@@ -19,7 +20,7 @@ export function ElementStateEventDemoComponent() {
             setUserError("User Name is required");
         } else {
             setUserError("");
-            document.write(`Hello ! ${userName} and your city is ${city}`);
+            document.write(`Hello ! ${userName} and your city is ${city} and your mobile is ${mobile}`);
         }
 
         if (city == "notcity") {
@@ -58,14 +59,17 @@ export function ElementStateEventDemoComponent() {
 
     function HandleCut(event) {
         setMsg("Removed and pasted to clipboard");
+        setMobile(event.target.value);
     }
 
     function HandleCopy(event) {
         setMsg("Copied to clipboard");
-    }   
+        setMobile(event.target.value);
+    }
 
     function HandlePaste(event) {
         setMsg("Inserted from clipboard");
+            setMobile(event.clipboardData.getData("text"));
     }
 
     return (
