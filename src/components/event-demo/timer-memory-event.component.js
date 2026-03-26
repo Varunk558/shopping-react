@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 
 export function TimerMemoryEventComponent() {
@@ -17,6 +17,7 @@ export function TimerMemoryEventComponent() {
     }, []);
 
     function ClearTimer() {
+        alert("Timer stopped");
         clearInterval(timerId);
     }
 
@@ -25,7 +26,7 @@ export function TimerMemoryEventComponent() {
         <div className="container-fluid">
             <div className="text-center">
                 <h2 className="mt-4">{time}</h2>
-                <button className="me-2">
+                <button className="me-2" onClick={LoadTime}>
                     <span className="bi bi-play-fill"></span>
                 </button>
                 <button className="ms-2" onClick={ClearTimer}>
