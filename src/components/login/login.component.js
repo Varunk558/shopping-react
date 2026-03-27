@@ -1,13 +1,13 @@
 import './login.component.css';
-export function LoginComponent(){
+export function LoginComponent(props){
     return(
         <div id="form-container" className="container-fluid">
             <form>
-                <h2> <span className="bi bi-person-fill"></span> User Login</h2>
+                <h2> <span className="bi bi-person-fill"></span>{props.title}</h2>
                 <div className="mb-2">
-                    <label className="form-label">User Name</label>
+                    <label className="form-label">{props.usernameLabel}</label>
                     <div>
-                        <input type = "text" className="form-control"/>
+                        <input type = {props.usernameType} className="form-control"/>
                     </div>
                 </div>
                 <div>
