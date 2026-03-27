@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-export function EmiCalculatorComponent() {
+// here props is of object type and it is used to pass data from parent component to child component. It is a way to communicate between components in React. Props are read-only and cannot be modified by the child component. They are passed down from the parent component to the child component as an argument in the function component. In this case, we are not using props in our component, but we can still pass data to it if needed.
+
+export function EmiCalculatorComponent(props) {
     const [amount, setAmount] = useState(0);
     const [years, setYears] = useState(0);
     const [interestRate, setInterestRate] = useState(0);
@@ -27,7 +29,7 @@ export function EmiCalculatorComponent() {
 
     return (
         <div className="container-fluid">
-            <h2 className="text-center mt-4">Personal Loan EMI Calculator</h2>
+            <h2 className="text-center mt-4">{props.title}</h2>
             <div className="row mt-4 border border-dark border-2 p-4">
                 <div className="col">
                     Amount you need &#36; <input type="text" size="5" value={amount} onChange={AmountChange} />
