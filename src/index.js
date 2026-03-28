@@ -19,11 +19,15 @@ import { ElementStateEventDemoComponent } from './components/event-demo/element-
 import { FormEventDemoComponent } from './components/event-demo/form-event-demo.component';
 import { TimerEventsDemoComponent } from './components/event-demo/timer-events-demo.component';
 import { TimerMemoryEventComponent } from './components/event-demo/timer-memory-event.component';
+import { EmiCalculatorComponent } from './components/emi-calculator/emi-calculator.component';
+import { SampleComponent } from './components/sample/sample.component';
+import { PropertiesDemoComponent } from './components/properties-demo/properties.component';
+import { ConditionalRenderingComponent } from './components/properties-demo/conditional-rendering.component';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <TimerMemoryEventComponent />
+    <ConditionalRenderingComponent />
   </React.StrictMode>
 );
 
