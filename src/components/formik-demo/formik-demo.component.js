@@ -1,42 +1,42 @@
 import { useFormik } from 'formik';
-
+import * as Yup from 'yup';
 
 export function FormikDemoComponent() {
 
 
-    function VerifyUserDetails(values) {
-        var errors = {};
-        if (values.name === '') {
-            errors.name = 'User Name Required';
-        } else if (values.name.length < 5) {
-            errors.name = 'User Name must be at least 5 characters';
-        }else if (values.name.length > 15) {
-            errors.name = 'User Name must be less than 15 characters';
-        }
+    // function VerifyUserDetails(values) {
+    //     var errors = {};
+    //     if (values.name === '') {
+    //         errors.name = 'User Name Required';
+    //     } else if (values.name.length < 5) {
+    //         errors.name = 'User Name must be at least 5 characters';
+    //     }else if (values.name.length > 15) {
+    //         errors.name = 'User Name must be less than 15 characters';
+    //     }
         
-        if (values.age == '') {
-            errors.age = 'Age Required';
-        } else if (isNaN(values.age)) {
-            errors.age = 'Age must be a number';
-        } else if (values.age < 18) {
-            errors.age = 'Age must be at least 18';
-        } else if (values.age > 100) {
-            errors.age = 'Age must be less than 100';
-        }
+    //     if (values.age == '') {
+    //         errors.age = 'Age Required';
+    //     } else if (isNaN(values.age)) {
+    //         errors.age = 'Age must be a number';
+    //     } else if (values.age < 18) {
+    //         errors.age = 'Age must be at least 18';
+    //     } else if (values.age > 100) {
+    //         errors.age = 'Age must be less than 100';
+    //     }
 
-        if (values.mobile.match(/^\s*$/)) {
-            errors.mobile = 'Mobile Number Required';
-        } else if (isNaN(values.mobile)) {
-            errors.mobile = 'Mobile Number must be a number';
-        } else if (values.mobile.length != 10) {
-            errors.mobile = 'Mobile Number must be 10 digits';
-        }
+    //     if (values.mobile.match(/^\s*$/)) {
+    //         errors.mobile = 'Mobile Number Required';
+    //     } else if (isNaN(values.mobile)) {
+    //         errors.mobile = 'Mobile Number must be a number';
+    //     } else if (values.mobile.length != 10) {
+    //         errors.mobile = 'Mobile Number must be 10 digits';
+    //     }
 
-        if (values.city === '-1') {
-            errors.city = 'City is Required';
-        }
-        return errors;
-    }
+    //     if (values.city === '-1') {
+    //         errors.city = 'City is Required';
+    //     }
+    //     return errors;
+    // }
     const formik = useFormik({
          initialValues: {
              name: '',
@@ -47,7 +47,24 @@ export function FormikDemoComponent() {
         onSubmit: (values) => {
             alert(JSON.stringify(values));
      },
-        validate: VerifyUserDetails
+        //validate: VerifyUserDetails
+        validationSchema: Yup.object({
+            name: Yup.string()
+                    .required('User Name Required')
+                    .min(5, 'User Name must be at least 5 characters')
+                    .max(15, 'User Name must be less than 15 characters'),
+            age: Yup.number()
+                    .required('Age Required')
+                    .min(18, 'Age must be at least 18')
+                    .max(100, 'Age must be less than 100'),
+            mobile: Yup.string()
+                        .required('Mobile Number Required')
+                        .matches(/^\d{10}$/, 'Mobile Number must be 10 digits'),
+            city: Yup.string()
+                    .required('City is Required')
+                    .notOneOf(['-1'], 'City is Required')
+        })
+
     });
 
     return (
