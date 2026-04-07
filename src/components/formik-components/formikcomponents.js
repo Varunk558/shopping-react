@@ -31,35 +31,34 @@ export function FormikComponents() {
                     alert(JSON.stringify(values));
                 }}
             >
-                
                {
-                 <Form>
-                        <dl>
-                            <dt>User Name</dt>
-                            <dd><Field name="name" /></dd>
-                            <dd><ErrorMessage name="name" component="div" className="text-danger" /></dd>
-                            <dt>Age</dt>
-                            <dd><Field name="age" /></dd>
-                            <dd><ErrorMessage name="age" component="div" className="text-danger" /></dd>
-                            <dt>Mobile</dt>
-                            <dd><Field name="mobile" /></dd>
-                            <dd><ErrorMessage name="mobile" component="div" className="text-danger" /></dd>
-                            <dt>City</dt>
-                            <dd>
-                                <Field name="city" as="select">
-                                    <option value="">Select a city</option>
-                                    <option value="new-york">New York</option>
-                                    <option value="los-angeles">Los Angeles</option>
-                                    <option value="chicago">Chicago</option>
-                                </Field>
-                            </dd>
-                            <dd><ErrorMessage name="city" component="div" className="text-danger" /></dd>
-                        </dl>
-                        <button className="btn btn-primary">Register</button>
-                 </Form>
-
-               } 
-               
+                   props =>
+                       <Form>
+                           <dl>
+                               <dt>User Name</dt>
+                               <dd><Field name="name" /></dd>
+                               <dd><ErrorMessage name="name" component="div" className="text-danger" /></dd>
+                                <dt>Age</dt>
+                                <dd><Field name="age" /></dd>
+                                <dd><ErrorMessage name="age" component="div" className="text-danger" /></dd>
+                                <dt>Mobile</dt>
+                                <dd><Field name="mobile" /></dd>
+                                <dd><ErrorMessage name="mobile" component="div" className="text-danger" /></dd>
+                                <dt>City</dt>
+                                <dd>
+                                     <Field name="city" as="select">
+                                        <option value="">Select a city</option>
+                                        <option value="new-york">New York</option>
+                                        <option value="los-angeles">Los Angeles</option>
+                                        <option value="chicago">Chicago</option>
+                                    </Field>
+                                </dd>
+                             <dd><ErrorMessage name="city" component="div" className="text-danger" /></dd>
+                            </dl>
+                            <button disabled={!props.isValid} className="btn btn-primary">Register</button>
+                            <button disabled={!props.dirty} className="btn btn-secondary">Save</button>
+                        </Form>
+                }
             </Formik>
         </div>
     )
