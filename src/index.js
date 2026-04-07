@@ -23,11 +23,19 @@ import { EmiCalculatorComponent } from './components/emi-calculator/emi-calculat
 import { SampleComponent } from './components/sample/sample.component';
 import { PropertiesDemoComponent } from './components/properties-demo/properties.component';
 import { ConditionalRenderingComponent } from './components/properties-demo/conditional-rendering.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ClassEventComponent } from './components/class-event-binding/class-event.component';
+import { LifeCycleComponent } from './components/life-cycle/life-cycle.component';
+import { FormValidationComponent } from './components/form-validation/form-validation.component';
+import { FormikDemoComponent } from './components/formik-demo/formik-demo.component';
+import { FormikValidationComponent } from './components/formik-validation/formik-validation.component';
+import { FormikWithHtmlComponent } from './components/formik-validation/formik-with-html.component';
+import { FormikComponents } from './components/formik-components/formikcomponents';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ConditionalRenderingComponent />
+    <FormikComponents />
   </React.StrictMode>
 );
 
