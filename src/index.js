@@ -31,11 +31,12 @@ import { FormikDemoComponent } from './components/formik-demo/formik-demo.compon
 import { FormikValidationComponent } from './components/formik-validation/formik-validation.component';
 import { FormikWithHtmlComponent } from './components/formik-validation/formik-with-html.component';
 import { FormikComponents } from './components/formik-components/formikcomponents';
+import { TutorialComponent } from './components/tutorial/tutorial.component';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <FormikComponents />
+    <TutorialComponent />
   </React.StrictMode>
 );
 
