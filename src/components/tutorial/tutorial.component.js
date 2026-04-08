@@ -16,9 +16,11 @@ export function TutorialComponent() {
                 </nav>
                 <div className="col-9">
                      <Routes>
+                        <Route path="/" element={<p>Select a topic from the left.</p>} />
                         <Route path="html" element={<div><h3>HTML</h3><p>It is a markup language for creating web pages.</p></div>} />
                         <Route path="css" element={<div><h3>CSS</h3><p>It is a style sheet language used for describing the presentation of a document written in HTML.</p></div>} />
-                         <Route path="javascript" element={<div><h3>JavaScript</h3><p>It is a programming language that enables interactive web pages.</p></div>} />
+                        <Route path="javascript" element={<div><h3>JavaScript</h3><p>It is a programming language that enables interactive web pages.</p></div>} />
+                        <Route path="*" element={<code>404 - Page You Requested is Not Found</code>} />
                      </Routes>
                 </div>
             </section>
